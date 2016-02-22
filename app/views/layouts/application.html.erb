@@ -13,9 +13,18 @@
 
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-  
+
 </head>
 <body>
+<br>
+<% if current_user %>
+  <p>Hi <strong><%= current_user.email %></strong>, <span><%= link_to "Logout", destroy_user_session_path, method: :delete %>
+</span></p>
+<% else %>
+  <%= link_to "Log In", new_user_session_path %>
+  <hr/>
+  <%= link_to "Sign Up", new_user_registration_path %>
+<% end %>
 
 <%= yield %>
 
