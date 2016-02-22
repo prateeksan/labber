@@ -10,6 +10,7 @@
   <br>
   <hr>
   <div class="row" id="container_posts">
+    <% @posts = @posts.order(updated_at: :desc) %>
     <%= render @posts %>
   </div>
   <!-- Modal -->
