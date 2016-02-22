@@ -31,7 +31,7 @@
   </div>
 
   <!-- Modal -->
-  <%= form_for(post, method: :put, remote: true, authenticity_token: true ) do |f| %>
+  <%= form_for(post, method: :put, remote: true, authenticity_token: true, html: { multipart: true } ) do |f| %>
     <div class="modal fade update_post" id="myupdatepost_<%= post.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
         <div class="modal-content">

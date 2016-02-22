@@ -56,6 +56,8 @@ group :development do
   gem 'carrierwave'
   # image resizing
   gem 'mini_magick'
+  # image upload using ajax
+  gem 'remotipart'
   
 end
 
