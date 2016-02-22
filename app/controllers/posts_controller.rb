@@ -29,7 +29,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    @post.image = post_params[:image]
+    #@post.image = post_params[:image]
     respond_to do |format|
       if @post.save
         # format.html { redirect_to action: "index", notice: 'Post was successfully created.' }
@@ -46,7 +46,6 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
-    @post.image = post_params[:image]
     respond_to do |format|
       if @post.update(post_params)
         # format.html { redirect_to action: "index", notice: 'Post was successfully updated.' }
