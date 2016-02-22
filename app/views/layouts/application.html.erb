@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>MyAjax</title>
+  <title>OurApp</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -16,17 +16,20 @@
 
 </head>
 <body>
-<br>
-<% if current_user %>
-  <p>Hi <strong><%= current_user.email %></strong>, <span><%= link_to "Logout", destroy_user_session_path, method: :delete %>
-</span></p>
-<% else %>
-  <%= link_to "Log In", new_user_session_path %>
-  <hr/>
-  <%= link_to "Sign Up", new_user_registration_path %>
-<% end %>
-
-<%= yield %>
-
+<div class="container">
+  <div class="row">
+    <ol class="breadcrumb">
+      <% if current_user %>
+        <li>Hi <strong><%= current_user.email %></strong></li>
+        <li><span><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+      </span></p>
+      <% else %>
+        <li><%= link_to "Log In", new_user_session_path %></li>
+        <li><%= link_to "Sign Up", new_user_registration_path %></li>
+      <% end %>
+    </ol>
+  </div>
+  <%= yield %>
+</div>
 </body>
 </html>

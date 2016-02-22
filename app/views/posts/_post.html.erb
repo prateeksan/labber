@@ -3,23 +3,26 @@
   <div class="panel panel-info">
     
     <div class="panel-heading">
-      <h3 class="panel-title"><%= post.title %></h3>
-      <p><%= post.content %></p>
+      <div class="row">
+        <div class="col-md-9">
+          <h3 class="panel-title"><%= post.title %></h3>
+        </div>
+        <div class="col-md-3">
+          <small><%= time_ago_in_words(post.created_at) %> ago</small>
+        </div>
+      </div>
     </div>
 
     <div class="panel-body">
-
-      <div>
-        <%= time_ago_in_words(post.created_at) %>
+      <div class="row">
+        <div class="col-md-9">
+          <p><%= post.content %></p>
+        </div>
+        <div class="btn-group col-md-3" role="group" aria-label:"...">
+          <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myupdatepost_<%= post.id %>">Edit</button>
+          <%= link_to 'Destroy', post, method: :delete, class: "btn btn-default", remote: true %>
+        </div>
       </div>
-
-      <br>
-
-      <div class="btn-group" role="group" aria-label:"...">
-        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myupdatepost_<%= post.id %>">Edit</button>
-        <%= link_to 'Destroy', post, method: :delete, class: "btn btn-default", remote: true %>
-      </div>
-
     </div>
 
   </div>
@@ -36,7 +39,7 @@
           <div class="modal-body">
             <div class="field">
               <%= f.label :title %><br>
-              <%= f.text_area :title, class: "form-control post_title" %>
+              <%= f.text_field :title, class: "form-control post_title" %>
             </div>
             <div class="field">
               <%= f.label :content %><br>
