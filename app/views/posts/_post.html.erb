@@ -1,14 +1,14 @@
 <div class="blog-main box text-center" id="post_<%= post.id %>">
   
-  <div class="panel panel-info">
+  <div class="panel panel-info post_panel">
     
     <div class="panel-heading">
       <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-7">
           <h3 class="panel-title"><%= post.title %></h3>
         </div>
-        <div class="col-md-3">
-          <small><%= time_ago_in_words(post.created_at) %> ago</small>
+        <div class="col-md-5 post_date_and_user">
+          <small><%= time_ago_in_words(post.created_at) %> ago by <%= User.find(post.user_id).email %></small>
         </div>
       </div>
     </div>

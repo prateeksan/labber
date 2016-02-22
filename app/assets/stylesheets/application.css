@@ -20,3 +20,11 @@
 
 .avatar_well {
 }
+
+.post_panel {
+  text-align: left;
+}
+
+.post_date_and_user{
+  text-align: right;
+}
