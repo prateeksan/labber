@@ -28,3 +28,7 @@
 .post_date_and_user{
   text-align: right;
 }
+
+.update_post {
+  text-align: left;
+}

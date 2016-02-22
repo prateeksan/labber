@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  # skip_before_action :verify_authenticity_token, only: [:create, :update]
 
   # GET /posts
   # GET /posts.json
@@ -28,6 +29,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
+    #@post.image = post_params[:image]
     respond_to do |format|
       if @post.save
         # format.html { redirect_to action: "index", notice: 'Post was successfully created.' }
@@ -76,6 +78,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :content)
+      params.require(:post).permit(:title, :content, :image)
     end
 end
