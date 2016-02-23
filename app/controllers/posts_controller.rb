@@ -7,7 +7,8 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @post = Post.new
-    @posts = Post.all
+    @posts = Post.search(params[:search])
+    @posts = @posts.order(updated_at: :desc)
   end
 
   # GET /posts/1

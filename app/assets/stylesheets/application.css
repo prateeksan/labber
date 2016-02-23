@@ -53,3 +53,7 @@
   float: left;
   padding-right: 1%;
 }
+
+.search_bar {
+  float: right;
+}
