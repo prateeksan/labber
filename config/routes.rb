@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resource :user, only: [:edit] do
     collection do
-      patch 'update_email'
+      patch 'update_avatar'
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.

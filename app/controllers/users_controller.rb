@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
-  def update_email
+  def update_avatar
     @user = User.find(current_user.id)
     if @user.update(user_params)
       # Sign in the user by passing validation in case their password changed
@@ -20,6 +20,6 @@ class UsersController < ApplicationController
 
   def user_params
     # NOTE: Using `strong_parameters` gem
-    params.require(:user).permit(:email)
+    params.require(:user).permit(:avatar, :avatar_cache)
   end
 end
