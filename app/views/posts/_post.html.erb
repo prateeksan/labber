@@ -4,20 +4,27 @@
     
     <div class="panel-heading">
       <div class="row">
-        <div class="col-md-7">
-          <h3 class="panel-title"><%= post.title %></h3>
+
+        <div class="col-md-8">
+          <%= image_tag(User.find(post.user_id).avatar.thumb.url, class: "avatar_thumb") %>
+          <h3 class="panel-title post_title"><%= post.title %></h3>
         </div>
-        <div class="col-md-5 post_date_and_user">
+        <div class="col-md-4 post_date_and_user">
           <small><%= time_ago_in_words(post.created_at) %> ago by <%= User.find(post.user_id).email %></small>
         </div>
+
       </div>
     </div>
 
     <div class="panel-body">
       <div class="row">
         <div class="col-md-9">
-          <%= image_tag post.image.thumb.url %><span>
-<%= post.content %></span>
+          <%= post.content %>
+          <% if post.image %>
+            <div class="row">
+              <%= image_tag post.image.url, class: "post_image" %>
+            </div>
+          <% end %>
         </div>
         <div class="btn-group col-md-3" role="group" aria-label:"...">
           <% if current_user.id == post.user_id %>
