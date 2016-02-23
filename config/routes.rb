@@ -5,6 +5,12 @@ Rails.application.routes.draw do
   get 'home/index'
   resources :posts
   root "home#index"
+
+  resource :user, only: [:edit] do
+    collection do
+      patch 'update_email'
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

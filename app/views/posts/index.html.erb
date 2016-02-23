@@ -4,6 +4,11 @@
       <div class="well avatar_well">
         <img><%= image_tag(current_user.avatar.resized.url, class: "avatar") %></img> 
       </div>
+      <div>
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#updateavatar">
+          Update Avatar
+        </button>
+      </div>
     </div>
   </div>
   <div class="col-md-1">
@@ -22,6 +27,29 @@
       <% @posts = @posts.order(updated_at: :desc) %>
       <%= render @posts %>
     </div>
+    <!-- Modal for new avatar -->
+    <%= form_for(current_user, :url => update_email_user_path) do |f| %>
+      <div class="modal fade" id="updateavatar" tabindex="-1" role="dialog" aria-labelledby="update_avatar_modal">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="update_avatar_modal">Avatar</h4>
+            </div>
+            <div class="modal-body">
+              <div class="field">
+                <%= f.label :email %><br>
+                <%= f.email_field :email, class: "form-control post_title" %>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <%= submit_tag "Update", class: "btn btn-primary" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
     <!-- Modal for new post -->
     <%= form_for(@post, remote: true, authenticity_token: true, html: { multipart: true }) do |f| %>
       <div class="modal fade" id="mynewpost" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
