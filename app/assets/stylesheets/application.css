@@ -29,10 +29,27 @@
   text-align: right;
 }
 
+.post_title {
+  text-align: left;
+  float: left;
+}
+
+.post_image {
+  max-width: 90%;
+  margin: 2%;
+  border: 1px solid #BDD7E4;
+}
+
 .update_post {
   text-align: left;
 }
 
 .avatar {
   max-width: 100%;
+}
+
+.avatar_thumb{
+  max-width: 100%;
+  float: left;
+  padding-right: 1%;
 }
