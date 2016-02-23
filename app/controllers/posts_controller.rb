@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @post = Post.new
-    @posts = Post.where(["content LIKE ?", "%#{params[:search]}%"])
+    @posts = Post.search(params[:search])
     @posts = @posts.order(updated_at: :desc)
   end
 
