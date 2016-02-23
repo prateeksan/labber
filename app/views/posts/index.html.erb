@@ -22,7 +22,7 @@
       <% @posts = @posts.order(updated_at: :desc) %>
       <%= render @posts %>
     </div>
-    <!-- Modal -->
+    <!-- Modal for new post -->
     <%= form_for(@post, remote: true, authenticity_token: true, html: { multipart: true }) do |f| %>
       <div class="modal fade" id="mynewpost" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
